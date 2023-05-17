@@ -31,7 +31,7 @@
             const y = event.clientY - rect.top;
             
             console.log('Clicked position:', x, y);
-            document.getElementById("status").textContent = `Clicked on (${x}, ${y}). Generating mask...`;
+            document.getElementById("status").textContent = `Clicked on (${x}, ${y}). Downloading the decoder model if needed and generating mask...`;
 
             let context = canvas.getContext('2d');
             context.clearRect(0, 0, canvas.width, canvas.height);
@@ -80,7 +80,7 @@
 
         async function handleImage(img) {
             console.log(status);
-            document.getElementById("status").textContent = `Uploaded image of size ${img.width}x${img.height}. Generating embedding; this will take a minute...`;
+            document.getElementById("status").textContent = `Uploaded image of size ${img.width}x${img.height}. Downloading the encoder model (~100 MB) if not cached and generating embedding. this will take a minute...`;
             console.log(`Uploaded image of size ${img.width}x${img.height}`);
             const scaleX = dimension / img.width;
             const scaleY = dimension / img.height;
